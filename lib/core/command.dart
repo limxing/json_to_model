@@ -181,6 +181,19 @@ final List<Command> valueCommands = [
   ),
   Command(
     prefix: '\$',
+    command: '[[]]',
+    callback: (DartDeclaration self, dynamic testSubject, {required String key, dynamic value}) {
+      final subject = testSubject as String;
+
+      final typeName = subject.substring(5).split('/').last.split('\\').last.toCamelCase();
+      final toImport = subject.substring(5);
+      self.addImport(toImport);
+      self.type = 'List<List<${typeName.toTitleCase()}>>';
+      return self;
+    },
+  ),
+  Command(
+    prefix: '\$',
     notprefix: '\$[]',
     callback: (DartDeclaration self, dynamic testSubject, {required String key, dynamic value}) {
       final subject = testSubject as String;
