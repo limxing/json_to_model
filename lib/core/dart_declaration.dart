@@ -63,6 +63,9 @@ class DartDeclaration {
     } else if (overrideEnabled) {
       declaration += '@override ';
     }
+    if(type == 'double'){
+      type = 'num';
+    }
 
     declaration += '$type$isNullableString $name${stringifyAssignment(assignment)};'.trim();
 

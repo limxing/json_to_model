@@ -39,8 +39,8 @@ class JsonModel {
         )
         .map((element) => element.mixinClass)
         .join(', ');
-    declaration = dartDeclarations.toDeclarationStrings(className);
     mockDeclaration = dartDeclarations.toMockDeclarationStrings(className);
+    declaration = dartDeclarations.toDeclarationStrings(className);
     copyWith = dartDeclarations.toCopyWith(className);
     cloneFunction = dartDeclarations.toCloneFunction(className);
     jsonFunctions = dartDeclarations.toJsonFunctions(className);
